@@ -1,0 +1,518 @@
+{
+    "ayet": [
+        {
+            "text": "Şüphesiz güçlükle beraber bir kolaylık vardır.",
+            "source": "İnşirah, 5",
+            "tags": [
+                "sabır",
+                "ümit"
+            ]
+        },
+        {
+            "text": "Rabbiniz şöyle buyurdu: Bana dua edin, duanıza cevap vereyim.",
+            "source": "Mü'min, 60",
+            "tags": [
+                "dua",
+                "iman"
+            ]
+        },
+        {
+            "text": "Allah sabredenlerle beraberdir.",
+            "source": "Bakara, 153",
+            "tags": [
+                "sabır",
+                "tevekkül"
+            ]
+        },
+        {
+            "text": "De ki: O Allah tektir. Allah Samed'dir.",
+            "source": "İhlas, 1-2",
+            "tags": [
+                "ihlas",
+                "iman"
+            ]
+        },
+        {
+            "text": "Bilesiniz ki, kalpler ancak Allah'ı anmakla huzur bulur.",
+            "source": "Ra'd, 28",
+            "tags": [
+                "huzur",
+                "tefekkür"
+            ]
+        },
+        {
+            "text": "Kim Allah'a tevekkül ederse, O ona yeter.",
+            "source": "Talak, 3",
+            "tags": [
+                "tevekkül",
+                "iman"
+            ]
+        },
+        {
+            "text": "Allah şükreden kullarını sever.",
+            "source": "Âl-i İmrân, 144",
+            "tags": [
+                "şükür",
+                "ibadet"
+            ]
+        },
+        {
+            "text": "Rabbim! Beni ve soyumdan gelecekleri namazı dosdoğru kılanlardan eyle.",
+            "source": "İbrahim, 40",
+            "tags": [
+                "dua",
+                "ibadet"
+            ]
+        },
+        {
+            "text": "Ey iman edenler! Sabredin, sabır yarışında düşmanlarınızı geçin.",
+            "source": "Âl-i İmrân, 200",
+            "tags": [
+                "sabır",
+                "iman"
+            ]
+        },
+        {
+            "text": "Allah'a ve Resûlüne itaat edin ki merhamet olunasınız.",
+            "source": "Âl-i İmrân, 132",
+            "tags": [
+                "merhamet",
+                "ibadet"
+            ]
+        },
+        {
+            "text": "Kim bir kötülük yapar veya nefsine zulmeder, sonra Allah'tan bağışlanma dilerse, Allah'ı çok bağışlayıcı ve merhametli bulur.",
+            "source": "Nisâ, 110",
+            "tags": [
+                "tevbe",
+                "merhamet"
+            ]
+        },
+        {
+            "text": "İyilik ve takva hususunda yardımlaşın.",
+            "source": "Mâide, 2",
+            "tags": [
+                "ahlak",
+                "merhamet"
+            ]
+        },
+        {
+            "text": "De ki: Rabbim adaleti emretti.",
+            "source": "A'râf, 29",
+            "tags": [
+                "adalet",
+                "ahlak"
+            ]
+        },
+        {
+            "text": "Göklerin ve yerin mülkü Allah'ındır. Allah her şeye kādirdir.",
+            "source": "Âl-i İmrân, 189",
+            "tags": [
+                "iman",
+                "tefekkür"
+            ]
+        },
+        {
+            "text": "Allah'ın rahmetinden ümit kesmeyin. Çünkü kâfirler topluluğundan başkası Allah'ın rahmetinden ümit kesmez.",
+            "source": "Yûsuf, 87",
+            "tags": [
+                "ümit",
+                "tevekkül"
+            ]
+        },
+        {
+            "text": "Namazı dosdoğru kılın, zekâtı verin ve rükû edenlerle birlikte rükû edin.",
+            "source": "Bakara, 43",
+            "tags": [
+                "ibadet",
+                "ahlak"
+            ]
+        },
+        {
+            "text": "İnsan için ancak çalıştığının karşılığı vardır.",
+            "source": "Necm, 39",
+            "tags": [
+                "sabır",
+                "tevekkül"
+            ]
+        },
+        {
+            "text": "Allah, adaletli davrananları sever.",
+            "source": "Hucurât, 9",
+            "tags": [
+                "adalet",
+                "sevgi"
+            ]
+        },
+        {
+            "text": "Rabbinizden mağfiret dileyin. Çünkü O, çok bağışlayandır.",
+            "source": "Nûh, 10",
+            "tags": [
+                "tevbe",
+                "dua"
+            ]
+        },
+        {
+            "text": "O, gökleri ve yeri altı günde yaratan, sonra Arş'a istiva edendir.",
+            "source": "Hadîd, 4",
+            "tags": [
+                "tefekkür",
+                "iman"
+            ]
+        },
+        {
+            "text": "Allah'a ve ahiret gününe inananlara Allah'ın mescidlerini ancak imar eder.",
+            "source": "Tevbe, 18",
+            "tags": [
+                "ibadet",
+                "iman"
+            ]
+        },
+        {
+            "text": "Ey iman edenler! Allah için hakkı ayakta tutan, adaletle şahitlik eden kimseler olun.",
+            "source": "Mâide, 8",
+            "tags": [
+                "adalet",
+                "iman"
+            ]
+        },
+        {
+            "text": "Eğer şükrederseniz, elbette size nimetimi artırırım.",
+            "source": "İbrahim, 7",
+            "tags": [
+                "şükür",
+                "ümit"
+            ]
+        },
+        {
+            "text": "Rabbin, yalnız kendisine kulluk etmenizi ve anne babaya iyilik etmenizi emretmiştir.",
+            "source": "İsrâ, 23",
+            "tags": [
+                "ahlak",
+                "sevgi"
+            ]
+        },
+        {
+            "text": "Sen af yolunu tut, iyiliği emret ve cahillerden yüz çevir.",
+            "source": "A'râf, 199",
+            "tags": [
+                "ahlak",
+                "sabır"
+            ]
+        },
+        {
+            "text": "Şüphesiz Allah, adaleti, iyiliği ve yakınlara vermeyi emreder.",
+            "source": "Nahl, 90",
+            "tags": [
+                "adalet",
+                "merhamet"
+            ]
+        },
+        {
+            "text": "Ey iman edenler! Allah'tan korkun ve doğru söz söyleyin.",
+            "source": "Ahzâb, 70",
+            "tags": [
+                "ahlak",
+                "iman"
+            ]
+        },
+        {
+            "text": "Muhakkak ki ben, tövbe eden, iman edip salih amel işleyen, sonra da doğru yolda gideni bağışlarım.",
+            "source": "Tâhâ, 82",
+            "tags": [
+                "tevbe",
+                "ümit"
+            ]
+        },
+        {
+            "text": "Her kim de Allah'tan korkarsa, Allah ona bir çıkış yolu gösterir.",
+            "source": "Talâk, 2",
+            "tags": [
+                "tevekkül",
+                "ümit"
+            ]
+        },
+        {
+            "text": "Ey insanlar! Sizi bir erkek ve bir dişiden yarattık. Birbirinizle tanışmanız için sizi milletlere ve kabilelere ayırdık.",
+            "source": "Hucurât, 13",
+            "tags": [
+                "sevgi",
+                "ahlak"
+            ]
+        },
+        {
+            "text": "Allah, müminlerin dostudur.",
+            "source": "Âl-i İmrân, 68",
+            "tags": [
+                "sevgi",
+                "iman"
+            ]
+        },
+        {
+            "text": "Onlar, bollukta da darlıkta da infak ederler, öfkelerini yutarlar ve insanları affederler.",
+            "source": "Âl-i İmrân, 134",
+            "tags": [
+                "merhamet",
+                "sabır"
+            ]
+        }
+    ],
+    "hadith": [
+        {
+            "text": "Ameller niyetlere göredir.",
+            "source": "Buhârî",
+            "tags": [
+                "ihlas",
+                "ibadet"
+            ]
+        },
+        {
+            "text": "Kolaylaştırınız, zorlaştırmayınız; müjdeleyiniz, nefret ettirmeyiniz.",
+            "source": "Buhârî",
+            "tags": [
+                "merhamet",
+                "ahlak"
+            ]
+        },
+        {
+            "text": "Sizin en hayırlınız Kur'an'ı öğrenen ve öğretendir.",
+            "source": "Tirmizî",
+            "tags": [
+                "ibadet",
+                "ahlak"
+            ]
+        },
+        {
+            "text": "Tebessüm sadakadır.",
+            "source": "Tirmizî",
+            "tags": [
+                "sevgi",
+                "ahlak"
+            ]
+        },
+        {
+            "text": "Hayra vesile olan, hayrı yapan gibidir.",
+            "source": "Tirmizî",
+            "tags": [
+                "ahlak",
+                "merhamet"
+            ]
+        },
+        {
+            "text": "Müslüman, elinden ve dilinden diğer Müslümanların güvende olduğu kimsedir.",
+            "source": "Buhârî",
+            "tags": [
+                "ahlak",
+                "adalet"
+            ]
+        },
+        {
+            "text": "Allah, size verdiklerinin eserini kulunun üzerinde görmeyi sever.",
+            "source": "Tirmizî",
+            "tags": [
+                "şükür",
+                "ibadet"
+            ]
+        },
+        {
+            "text": "Din, nasihattir.",
+            "source": "Müslim",
+            "tags": [
+                "ahlak",
+                "merhamet"
+            ]
+        },
+        {
+            "text": "Sabır, ışıktır.",
+            "source": "Müslim",
+            "tags": [
+                "sabır",
+                "iman"
+            ]
+        },
+        {
+            "text": "İnsanlara merhamet etmeyene Allah da merhamet etmez.",
+            "source": "Buhârî",
+            "tags": [
+                "merhamet",
+                "ahlak"
+            ]
+        },
+        {
+            "text": "Güzel söz sadakadır.",
+            "source": "Buhârî",
+            "tags": [
+                "ahlak",
+                "sevgi"
+            ]
+        },
+        {
+            "text": "Allah yumuşak huyludur ve yumuşaklığı sever.",
+            "source": "Buhârî",
+            "tags": [
+                "sabır",
+                "merhamet"
+            ]
+        },
+        {
+            "text": "Kim Allah için tevazu gösterirse Allah onu yükseltir.",
+            "source": "Müslim",
+            "tags": [
+                "ahlak",
+                "tevekkül"
+            ]
+        },
+        {
+            "text": "Oruç bir kalkandır.",
+            "source": "Buhârî",
+            "tags": [
+                "ibadet",
+                "sabır"
+            ]
+        },
+        {
+            "text": "Duası kabul olmasını isteyen, helal lokma yesin.",
+            "source": "Taberânî",
+            "tags": [
+                "dua",
+                "ahlak"
+            ]
+        },
+        {
+            "text": "Cennet annelerin ayakları altındadır.",
+            "source": "Nesâî",
+            "tags": [
+                "sevgi",
+                "ahlak"
+            ]
+        },
+        {
+            "text": "Kim bir kardeşinin ihtiyacını giderirse, Allah da onun ihtiyacını giderir.",
+            "source": "Buhârî",
+            "tags": [
+                "merhamet",
+                "sevgi"
+            ]
+        },
+        {
+            "text": "Allah Teâlâ, kulunu tövbe edince, birinin kaybettiği devesini bulduğunda duyduğu sevinçten daha çok sevinir.",
+            "source": "Buhârî",
+            "tags": [
+                "tevbe",
+                "ümit"
+            ]
+        },
+        {
+            "text": "Kuvvetli mümin, zayıf müminden daha hayırlıdır.",
+            "source": "Müslim",
+            "tags": [
+                "iman",
+                "sabır"
+            ]
+        },
+        {
+            "text": "Yaptığın iyiliğin arkasından kötülük yap ki, onu silsin.",
+            "source": "Tirmizî",
+            "tags": [
+                "tevbe",
+                "ahlak"
+            ]
+        },
+        {
+            "text": "Tevekkül, deveyi bağlayıp öyle Allah'a güvenmektir.",
+            "source": "Tirmizî",
+            "tags": [
+                "tevekkül",
+                "iman"
+            ]
+        },
+        {
+            "text": "Allah'a ibadet et, ona hiçbir şeyi ortak koşma.",
+            "source": "Buhârî",
+            "tags": [
+                "ihlas",
+                "ibadet"
+            ]
+        },
+        {
+            "text": "Allah'ım! Senden hidayet, takva, iffet ve gönül zenginliği isterim.",
+            "source": "Müslim",
+            "tags": [
+                "dua",
+                "huzur"
+            ]
+        },
+        {
+            "text": "Müminin niyeti amelinden hayırlıdır.",
+            "source": "Taberânî",
+            "tags": [
+                "ihlas",
+                "tefekkür"
+            ]
+        },
+        {
+            "text": "Şüphesiz Allah adaletlidir, adaleti sever.",
+            "source": "Müslim",
+            "tags": [
+                "adalet",
+                "ahlak"
+            ]
+        },
+        {
+            "text": "Dünyan için ebedi kalacakmış gibi, âhiretin için yarın ölecekmiş gibi çalış.",
+            "source": "Beyhakī",
+            "tags": [
+                "tefekkür",
+                "ibadet"
+            ]
+        },
+        {
+            "text": "Gerçek zenginlik gönül zenginliğidir.",
+            "source": "Buhârî",
+            "tags": [
+                "huzur",
+                "şükür"
+            ]
+        },
+        {
+            "text": "Sıla-i rahim yapan, ömrü bereketlenir.",
+            "source": "Buhârî",
+            "tags": [
+                "sevgi",
+                "merhamet"
+            ]
+        },
+        {
+            "text": "Şükür, nimetin artmasına vesiledir.",
+            "source": "Beyhakī",
+            "tags": [
+                "şükür",
+                "tefekkür"
+            ]
+        },
+        {
+            "text": "İki nimet vardır ki insanların çoğu bunların kıymetini takdir edemez: Sağlık ve boş vakit.",
+            "source": "Buhârî",
+            "tags": [
+                "şükür",
+                "tefekkür"
+            ]
+        },
+        {
+            "text": "Allah'ın yardımı cemaatle beraberdir.",
+            "source": "Tirmizî",
+            "tags": [
+                "iman",
+                "ümit"
+            ]
+        },
+        {
+            "text": "En hayırlı oruç, Davud (a.s.)'ın orucudur; bir gün oruç tutar, bir gün tutmaz.",
+            "source": "Buhârî",
+            "tags": [
+                "ibadet",
+                "sabır"
+            ]
+        }
+    ]
+}
