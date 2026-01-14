@@ -24,6 +24,23 @@ Günün ritmini bozmadan, huzurlu bir deneyimle namaz vakitlerini takip edin.
 - Büyük, okunaklı **geri sayım** (72px)
 - Tek sayfa, sıfır karmaşa
 
+### 🤖 AI Günlük Hikmet
+- **Gemini AI** entegrasyonu ile kişiselleştirilmiş selamlama
+- Vakit ve lokasyona göre özgün manevi içerik
+- Günlük önbellek stratejisi (quota optimizasyonu)
+- Kolay paylaşım özelliği
+
+### 🎵 Sonic Atmosfer
+- **Ney ve Doğa sesleri** ile huzurlu dinleme deneyimi
+- Glassmorphism tasarımlı oynatıcı
+- Arka planda oynatma desteği
+
+### 🌅 Celestial Sky Simulation
+- **Gerçek zamanlı güneş hareketi** (parabolik ark)
+- RadialGradient ile fotorealistik güneş
+- Vakite göre değişen gökyüzü renkleri (Aurora)
+- Gece göğünde titreyen yıldızlar
+
 ### 🔒 Gizlilik Öncelikli
 - GPS izni **gerektirmez** — konum manuel seçilir
 - Konum tercihi cihazda saklanır

@@ -5,8 +5,10 @@ import 'package:ufuk/app/atmosphere/segment.dart';
 import 'package:ufuk/data/repository/content_repository.dart';
 import 'package:ufuk/data/services/location_preferences.dart';
 import 'package:ufuk/features/home/home_controller.dart';
+import 'package:ufuk/features/home/widgets/aurora_background.dart';
+import 'package:ufuk/features/home/widgets/celestial_overlay.dart';
 import 'package:ufuk/features/settings/location_picker_sheet.dart';
-import 'widgets/atmosphere_bg.dart';
+
 import 'widgets/hero_countdown.dart';
 import 'widgets/glass_carousel.dart';
 import 'widgets/prayer_timeline_card.dart';
@@ -43,11 +45,19 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Layer 0: Ambient Background
+          // Layer 0: Aurora Atmosphere (Dynamic Background)
           ValueListenableBuilder<TimeSegment>(
             valueListenable: _controller.segmentNotifier,
             builder: (_, segment, __) {
-              return AtmosphereBackground(segment: segment);
+              return AuroraBackground(segment: segment);
+            },
+          ),
+          
+          // Layer 0.25: Celestial Overlay (Sun & Stars) - Continuous time-based
+          ValueListenableBuilder<DateTime>(
+            valueListenable: _controller.timeNotifier,
+            builder: (_, currentTime, __) {
+              return CelestialOverlay(currentTime: currentTime);
             },
           ),
           

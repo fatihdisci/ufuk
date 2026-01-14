@@ -68,17 +68,21 @@
 - [x] **Cache**: Hive storage for daily summary.
 - [x] **UI**: Featured AI Card in Carousel + Share Button.
 
-## Phase 6.1: Visual Polish - Aurora Atmosphere (IN PROGRESS)
-- [ ] **Widget**: Create `AuroraBackground` widget.
-- [ ] **Logic**: Dynamic gradient based on `TimeSegment`.
-- [ ] **Integration**: Replace static background in `HomeScreen`.
+## Phase 6.1: Visual Polish - Aurora Atmosphere (COMPLETE - v1)
+- [x] **Widget**: Create `AuroraBackground` widget.
+- [x] **Logic**: Dynamic gradient based on `TimeSegment`.
+- [x] **Integration**: Replace static background in `HomeScreen`.
+- [x] **Celestial**: Sun arc with RadialGradient + layered glow.
+- [x] **Stars**: Twinkling star field at night.
 
-## Phase 6.2: Motion Design - Liquid Interactions (PENDING)
+> **Future Polish:** Sun glow intensity/softness may need refinement in future iterations.
+
+## Phase 6.2: Motion Design - Liquid Interactions (PENDING - NEXT SPRINT)
 - [ ] **Entrance**: Staggered animations for Carousel cards.
 - [ ] **Touch**: Bouncy scale effect on buttons.
 - [ ] **Haptics**: Integrate `HapticFeedback`.
 
-## Phase 7: Settings & Navigation (PENDING)
+## Phase 7: Settings & Navigation (PENDING - NEXT SPRINT)
 - [ ] **Navigation**: Implement `Navigator.push` for `SettingsScreen`.
 - [ ] **UI**: Create `SettingsScreen` with `GlassTokens`.
 - [ ] **Features**: Notifications, Location, About.
@@ -86,4 +90,5 @@
 ---
 
 ### Known Issues / Blockers
-- **Build**: Windows build requires Visual Studio toolchain (User environment issue). Android/iOS build should be fine if SDKs are present, or `flutter run` might work if emulators are active.
+- **Build**: Windows build requires Visual Studio toolchain. Android/iOS builds work with SDKs present.
+- **Sun Visual**: Glow intensity may appear too strong on some devices.

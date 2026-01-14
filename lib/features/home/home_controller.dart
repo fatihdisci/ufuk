@@ -56,6 +56,7 @@ class HomeController with WidgetsBindingObserver {
   final ValueNotifier<List<PrayerTimeDisplay>> timesNotifier = ValueNotifier([]);
   final ValueNotifier<Map<String, DailyContent>> contentNotifier = ValueNotifier({});
   final ValueNotifier<String?> aiSummaryNotifier = ValueNotifier(null);
+  final ValueNotifier<DateTime> timeNotifier = ValueNotifier(DateTime.now()); // For continuous sun position
   final ValueNotifier<HomeStatus> statusNotifier = ValueNotifier(HomeStatus.loading);
 
   Timer? _ticker;
@@ -206,44 +207,27 @@ class HomeController with WidgetsBindingObserver {
     final s = (duration.inSeconds % 60).toString().padLeft(2, '0');
     
     heroNotifier.value = HeroViewModel('$h:$m:$s', finalLabel);
+    
+    // Update time for celestial overlay (sun position)
+    timeNotifier.value = now;
 
-    // 2. Segment Update
-    if (now.second % 60 == 0) {
-       final seg = AtmosphereEngine.resolveSegment(now, _todayData!);
-       if (segmentNotifier.value != seg) {
+    // 2. Segment Update (Every 30 seconds - lightweight but not excessive)
+    if (now.second % 30 == 0) {
+      final seg = AtmosphereEngine.resolveSegment(now, _todayData!);
+      
+      if (segmentNotifier.value != seg) {
+         print("🎨 ATMOSPHERE CHANGE: ${segmentNotifier.value} -> $seg at ${now.toIso8601String()}"); 
          segmentNotifier.value = seg;
-       }
+      }
+    }
        
-       // 3. Ad Safety Check (Every minute)
-       // If in Huzur zone, hide ad. If out, show (if loaded).
-       // Note: implementation assumes we strictly follow isAdAllowed.
-       // If we have an ad loaded but it's not allowed, set notifier to null? 
-       // Or keep it but UI hides it? Cleaner to set notifier to null or have a separate bool.
-       // Let's reload/hide via notifier for simplicity.
-       // Ideally we don't dispose the ad, just hide it. 
-       // But GlassCarousel builds based on list.
-       // Let's keep it simple: if safe, show. If unsafe, hide.
-       // For this phase, we won't implement complex "hide but keep loaded".
-       // We'll just rely on _adService.loadNativeAd() being efficient or caching inside service?
-       // The service logic created above does NOT cache the native ad after load.
-       // So we should keep reference in controller.
-       
-       // Better logic:
-       // bool isSafe = _adService.isAdAllowed(now, _todayData);
-       // if (!isSafe && nativeAdNotifier.value != null) nativeAdNotifier.value = null; 
-       // if (isSafe && nativeAdNotifier.value == null) _loadNativeAd();
-       
-       // But _loadNativeAd is async. Let's act conservatively.
-       // If currently showing ad and becomes unsafe -> Hide.
-       // We won't aggressively reload for now to avoid flicker, just hide if unsafe.
-       final isSafe = _adService.isAdAllowed(now, _todayData);
+    // 3. Ad Safety Check (Every minute is fine for ads)
+    if (now.second == 0) {
+       final isSafe = _adService.isAdAllowed(now, _todayData!);
        if (!isSafe && nativeAdNotifier.value != null) {
-          // Hide it
           nativeAdNotifier.value = null;
        } 
-       // If safe and null, we could try to reload? 
-       // For MVP, enable one-shot load at start. If blocked at start, it never loads?
-       // Let's allow retry if null and safe.
+
        if (isSafe && nativeAdNotifier.value == null) {
           _loadNativeAd();
        }
@@ -251,6 +235,7 @@ class HomeController with WidgetsBindingObserver {
   }
 
   void dispose() {
+    _ticker?.cancel(); // Cancel timer to prevent memory leak
     nativeAdNotifier.value?.dispose();
     WidgetsBinding.instance.removeObserver(this);
   }
@@ -267,6 +252,9 @@ class HomeController with WidgetsBindingObserver {
         _wasPlayingBeforeBackground = false;
       }
     } else if (state == AppLifecycleState.resumed) {
+      // Force immediate time/segment sync when returning to app
+      _onTick();
+      
       if (_wasPlayingBeforeBackground) {
         AudioService().resume();
       }
