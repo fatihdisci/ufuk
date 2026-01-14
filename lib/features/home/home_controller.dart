@@ -11,6 +11,8 @@ import 'package:ufuk/domain/engine/context_engine.dart';
 
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:ufuk/data/services/ad_service.dart';
+import 'package:ufuk/data/services/audio_service.dart';
+import 'package:ufuk/data/services/ai_content_service.dart';
 
 // View Models
 class HeroViewModel {
@@ -31,7 +33,7 @@ class PrayerTimeDisplay {
 
 enum HomeStatus { loading, online, offline, error }
 
-class HomeController {
+class HomeController with WidgetsBindingObserver {
   final PrayerRepository _prayerRepo = PrayerRepository();
   final ContentRepository _contentRepo = ContentRepository();
   final LocationPreferences locationPrefs = LocationPreferences();
@@ -53,6 +55,7 @@ class HomeController {
   final ValueNotifier<HeroViewModel> heroNotifier = ValueNotifier(HeroViewModel('--:--:--', 'Yükleniyor...'));
   final ValueNotifier<List<PrayerTimeDisplay>> timesNotifier = ValueNotifier([]);
   final ValueNotifier<Map<String, DailyContent>> contentNotifier = ValueNotifier({});
+  final ValueNotifier<String?> aiSummaryNotifier = ValueNotifier(null);
   final ValueNotifier<HomeStatus> statusNotifier = ValueNotifier(HomeStatus.loading);
 
   Timer? _ticker;
@@ -62,6 +65,9 @@ class HomeController {
     try {
       await _prayerRepo.init();
       await locationPrefs.init();
+      await AudioService().init();
+      await AiContentService().init();
+      WidgetsBinding.instance.addObserver(this);
       
       // Ads Init (Fire and forget, safe per platform check inside service)
       _adService.init().then((_) => _loadNativeAd());
@@ -115,7 +121,11 @@ class HomeController {
             ? "Huzur vaktine yaklaşıyoruz." 
             : "Günün ritmini sakin tut.";
         
+        
         _startTimer();
+
+        // Load AI Summary (Fire and forget, non-blocking)
+        _loadAiSummary();
       } else {
          statusNotifier.value = HomeStatus.error;
          heroNotifier.value = HeroViewModel('--:--:--', 'Veri Bulunamadı');
@@ -148,6 +158,19 @@ class HomeController {
            nativeAdNotifier.value = ad;
         }
      }
+  }
+
+  Future<void> _loadAiSummary() async {
+    try {
+      final summary = await AiContentService().getDailySummary(
+        date: DateTime.now(),
+        segment: segmentNotifier.value, 
+        location: locationNotifier.value,
+      );
+      aiSummaryNotifier.value = summary;
+    } catch (e) {
+      print("Home Controller AI Load Error: $e");
+    }
   }
 
   void _startTimer() {
@@ -228,8 +251,26 @@ class HomeController {
   }
 
   void dispose() {
-    _ticker?.cancel();
     nativeAdNotifier.value?.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+  }
+
+  bool _wasPlayingBeforeBackground = false;
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      if (AudioService().isPlaying) {
+        _wasPlayingBeforeBackground = true;
+        AudioService().pause();
+      } else {
+        _wasPlayingBeforeBackground = false;
+      }
+    } else if (state == AppLifecycleState.resumed) {
+      if (_wasPlayingBeforeBackground) {
+        AudioService().resume();
+      }
+    }
   }
   
   Map<String, dynamic>? _findToday(List<dynamic> monthData, DateTime now) {
@@ -330,6 +371,14 @@ class HomeController {
         isSharingNotifier.value = false;
         print("HomeController: Share Lock Released");
       }
+  }
+
+  Future<void> shareAiContent(BuildContext context, String aiText) async {
+    final tempContent = DailyContent(
+      source: "UFUK AI",
+      text: aiText,
+    );
+    await share(context, tempContent);
   }
 }
 

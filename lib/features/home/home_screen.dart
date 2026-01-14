@@ -10,6 +10,7 @@ import 'widgets/atmosphere_bg.dart';
 import 'widgets/hero_countdown.dart';
 import 'widgets/glass_carousel.dart';
 import 'widgets/prayer_timeline_card.dart';
+import 'widgets/glass_player.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,6 +49,18 @@ class _HomeScreenState extends State<HomeScreen> {
             builder: (_, segment, __) {
               return AtmosphereBackground(segment: segment);
             },
+          ),
+          
+          // Layer 0.5: Audio Control (Top Right)
+          Positioned(
+            top: 0, 
+            right: 0, 
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0), // Standard padding
+                child: const GlassPlayer(),
+              ),
+            ),
           ),
 
           // Layer 1: Content
@@ -204,11 +217,18 @@ class _HomeScreenState extends State<HomeScreen> {
         return ValueListenableBuilder<NativeAd?>(
           valueListenable: _controller.nativeAdNotifier,
           builder: (_, nativeAd, __) {
-            return GlassCarousel(
-              times: const [], // No longer showing times in carousel
-              content: content,
-              onShare: (item) => _controller.share(context, item),
-              nativeAd: nativeAd,
+            return ValueListenableBuilder<String?>(
+              valueListenable: _controller.aiSummaryNotifier,
+              builder: (_, aiSummary, __) {
+                return GlassCarousel(
+                  times: const [], // No longer showing times in carousel
+                  content: content,
+                  onShare: (item) => _controller.share(context, item),
+                  onAiShare: (text) => _controller.shareAiContent(context, text),
+                  nativeAd: nativeAd,
+                  aiSummary: aiSummary,
+                );
+              },
             );
           },
         );

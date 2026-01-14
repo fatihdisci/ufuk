@@ -6,25 +6,42 @@ import 'package:ufuk/data/repository/content_repository.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../../monetization/glass_native_ad.dart';
 import '../home_controller.dart';
+import 'glass_ai_card.dart';
 
 class GlassCarousel extends StatelessWidget {
   final List<PrayerTimeDisplay> times; // Kept for compatibility, not used
   final Map<String, DailyContent> content;
   final Function(DailyContent) onShare;
+  final Function(String)? onAiShare; // New callback for AI text
   final NativeAd? nativeAd;
+  final String? aiSummary;
 
   const GlassCarousel({
     super.key, 
     required this.times, 
     required this.content,
     required this.onShare,
+    this.onAiShare,
     this.nativeAd,
+    this.aiSummary,
   });
 
   @override
   Widget build(BuildContext context) {
     // Build list of cards dynamically
     final List<Widget> cards = [];
+
+    // AI Summary Card (Index 0)
+    if (aiSummary != null && aiSummary!.isNotEmpty) {
+      cards.add(GlassAiCard(
+        text: aiSummary!,
+        onShare: () {
+          if (onAiShare != null) {
+            onAiShare!(aiSummary!);
+          }
+        },
+      ));
+    }
     
     // Ayet Card
     if (content.containsKey('ayet')) {

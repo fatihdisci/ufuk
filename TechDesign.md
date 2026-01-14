@@ -18,8 +18,11 @@
 | **State Mgmt** | `ValueNotifier` + `Provider` (DI only) | **Minimalism.** The app is single-screen. BLoC/Riverpod introduces unnecessary boilerplate/cognitive load. We need simple reactive primitives binding specific UI components to their data sources. |
 | **Local DB** | `hive` + `hive_flutter` | **Performance.** It's Synchronous (read) & NoSQL. Essential for "Instant Cold Start" where we render UI immediately from cache before the async engine boots. `shared_preferences` is too slow for complex objects (PrayerTimes). |
 | **Location** | `geolocator` | Industry standard, handles permission flows gracefully. |
-| **Animations** | `flutter_animate` | Declarative, chainable animations. vital for the "Atmosphere" transitions without writing complex `AnimationController` boilerplate. |
+| **Animations** | `flutter_animate` | Declarative, chainable animations. Vital for the "Atmosphere" transitions and "Liquid Interactions" micro-interactions. |
+| **Audio** | `audioplayers` | **Standard.** Robust support for local asset playback, looping, and volume control. Simple API for "One-shot" or "Loop" modes. |
+| **AI** | `google_generative_ai` | **Dart SDK.** Native integration with Gemini. Efficient, streaming capable (though we use unary for simple text). |
 | **Glass** | Native `BackdropFilter` | **Performance Risk.** We will use `ClipRRect` + `BackdropFilter` but strictly limit the blur area to the Cards, NOT the full screen background (which is just a gradient). |
+| **Haptics** | Native `HapticFeedback` | **Standard Flutter.** `HapticFeedback.lightImpact()` for tactile feedback on interactive elements. |
 
 ---
 
@@ -27,7 +30,14 @@
 
 We follow a strict separation between the **Atmosphere Engine** (Logic) and the **Glass View** (UI).
 
-### 2.1 Layered Architecture
+### 2.1 Navigation Architecture
+- **MVP (Phase 1-5.5):** Single-Page App (HomeScreen only).
+- **Phase 7+:** Multi-Page Architecture using `Navigator.push` / `pop`.
+- **Screens:**
+  - `HomeScreen`: Main app experience.
+  - `SettingsScreen`: User preferences, location, about.
+
+### 2.2 Layered Architecture
 ```ascii
 [ UI Layer (Widgets) ]
        ⬇ (Observes)
@@ -43,6 +53,11 @@ We follow a strict separation between the **Atmosphere Engine** (Logic) and the 
     *   **Input**: `DateTime.now()`, `PrayerTimes` (Today).
     *   **Output**: `CurrentSegment` enum (Sahur, Morning, Noon, Asr, Iftar, Isha, LateNight).
     *   **Logic**: Calculates the precise "State of the Sky".
+3.  **`AiContentService`**:
+    *   **Input**: `TimeSegment`, `City`, `Date`.
+    *   **Output**: `AiSummary` (String).
+    *   **Strategy**: Check Hive (Today Key) -> Call Gemini API -> Save to Hive.
+    *   **Prompt Engineering**: "Act as a wise, minimalist spiritual companion..."
 2.  **`TimeDilationService`** (Countdown):
     *   **Input**: `RamadanMode` (bool), `CurrentSegment`.
     *   **Output**: `UsageFocus` (Next Prayer vs Iftar vs Sahur).
@@ -137,7 +152,7 @@ lib/
 │   ├── theme/                 # AppTheme, GlassTokens (Radius, Blur, Opacity)
 │   └── utils/                 # DateTime extensions, String formatters
 ├── data/
-│   ├── services/              # ApiService (Dio), LocationService
+│   ├── services/              # ApiService (Dio), LocationService, AudioService, AiContentService
 │   ├── local/                 # HiveManager
 │   └── repositories/          # Real impl of domain interfaces
 ├── domain/                    # Pure Dart logic

@@ -66,6 +66,31 @@
 - Accessibility (Text Scale, High Contrast).
 - Share Module.
 
+**Phase 5: Sonic Atmosphere**
+- **Assets:** Integration of `ney.mp3` and `nature.mp3`.
+- **AudioService:** Lifecycle-aware player logic.
+- **Glass Player:** Minimal UI widget.
+
+**Phase 5.5: AI Daily Summary**
+- **Tech:** `google_generative_ai` + `AiContentService`.
+- **Logic:** Once-per-day generation + Hive Caching.
+- **UI:** Featured "Wisdom Card" in Carousel + Share.
+
+**Phase 6.1: Visual Polish - "Aurora Atmosphere"**
+- **Tech:** `AuroraBackground` widget using `AnimatedContainer`.
+- **Logic:** Dynamic gradient based on `TimeSegment`.
+- **Constraint:** Lightweight, no shaders, 60fps.
+
+**Phase 6.2: Motion Design - "Liquid Interactions"**
+- **Tech:** `flutter_animate` for staggered entrance animations.
+- **Logic:** Bouncy touch feedback + Haptic on buttons.
+- **Target:** Carousel, Player, Share buttons.
+
+**Phase 7: Expansion - "System Control" (Settings)**
+- **Tech:** Multi-page Navigation (`Navigator.push`).
+- **UI:** `SettingsScreen` with `GlassTokens`.
+- **Features:** Notifications, Location, Privacy/About.
+
 ---
 
 ## 6. Self-Correction

@@ -56,9 +56,32 @@
 - [x] **GlassTokens**: Standardized blur/opacity values.
 - [x] **Bug Sweep**: Analysis passed, imports fixed.
 
-## Phase 5: Polish & Launch
-- [ ] **Verification**: Accessibility & Offline.
-- [ ] **Walkthrough**: Final demo artifact.
+- [x] **Bug Sweep**: Analysis passed, imports fixed.
+
+## Phase 5: Sonic Atmosphere (COMPLETE)
+- [x] **Assets**: Import mp3 files.
+- [x] **Engine**: Implement `AudioService` (audioplayers).
+- [x] **UI**: Implement `GlassPlayer` widget.
+
+## Phase 5.5: AI Daily Summary (COMPLETE)
+- [x] **Data**: `AiContentService` (Gemini Integration).
+- [x] **Cache**: Hive storage for daily summary.
+- [x] **UI**: Featured AI Card in Carousel + Share Button.
+
+## Phase 6.1: Visual Polish - Aurora Atmosphere (IN PROGRESS)
+- [ ] **Widget**: Create `AuroraBackground` widget.
+- [ ] **Logic**: Dynamic gradient based on `TimeSegment`.
+- [ ] **Integration**: Replace static background in `HomeScreen`.
+
+## Phase 6.2: Motion Design - Liquid Interactions (PENDING)
+- [ ] **Entrance**: Staggered animations for Carousel cards.
+- [ ] **Touch**: Bouncy scale effect on buttons.
+- [ ] **Haptics**: Integrate `HapticFeedback`.
+
+## Phase 7: Settings & Navigation (PENDING)
+- [ ] **Navigation**: Implement `Navigator.push` for `SettingsScreen`.
+- [ ] **UI**: Create `SettingsScreen` with `GlassTokens`.
+- [ ] **Features**: Notifications, Location, About.
 
 ---
 
